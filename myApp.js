@@ -25,6 +25,7 @@ app.get("/", (req, res) => {
 //     res.json({"message": "Hello json"})
 // })
 
+//#7
 app.get("/json" , (req, res) => {
     if (process.env["MESSAGE_STYLE"] == "uppercase") {
         res.json({"message": "HELLO JSON"})
@@ -32,6 +33,7 @@ app.get("/json" , (req, res) => {
     res.json({"message": "Hello json"})
 })
 
+//#8
 app.get("/now", (req, res, next) => {
     req.time = new Date().toString();
     next();
@@ -40,10 +42,16 @@ app.get("/now", (req, res, next) => {
 
 });
 
+//#9
 app.get("/:word/echo", (req, res) => {
     res.json({ echo: req.params.word })
 })
 
+
+//#10
+app.get("/name", (req, res) => {
+    res.json({ name: req.query.first + " " + req.query.last })
+});
 
 
  module.exports = app;
